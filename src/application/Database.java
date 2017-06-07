@@ -8,7 +8,6 @@ public class Database
 	private static boolean hasData = false;
 	private String _username;
 	private String _password;
-	private String loggedUser;
 	
 	public Database(){
 		try {
@@ -115,13 +114,6 @@ public class Database
 		
 		return existingUser;
 	}
-	
-	public void setLoggedUser(String username){
-		loggedUser = username;
-		}
-	
-	public String getLoggedUser(){
-		return loggedUser;
-	}
+
 }
 	

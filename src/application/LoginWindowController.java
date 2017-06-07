@@ -30,16 +30,16 @@ public class LoginWindowController {
 	@FXML private Label reg_invalid_password_label;
 	@FXML private Label success_reg_label;
 	
+	public static String loggedUsername;
+	
 	@FXML public void handleLoginButton(ActionEvent event) throws IOException{
-		Parent piano_logged_parent = FXMLLoader.load(getClass().getResource("PianoLoggedView.fxml"));
-		Scene piano_logged_scene = new Scene(piano_logged_parent);
-		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		
-		
+			
 		if (isValidCredentials()){
-			String username = login_username_box.getText();
-			Database d = new Database();
-			d.setLoggedUser(username);
+			LoginWindowController.loggedUsername = login_username_box.getText();
+			
+			Parent piano_logged_parent = FXMLLoader.load(getClass().getResource("PianoLoggedView.fxml"));
+			Scene piano_logged_scene = new Scene(piano_logged_parent);
+			Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			app_stage.close();
 			app_stage.setScene(piano_logged_scene);
 			app_stage.show();
@@ -94,6 +94,16 @@ public class LoginWindowController {
 		reg_username_box.clear();
 		reg_password_box.clear();
 		reg_rep_password_box.clear();
+		
+	}
+	
+	@FXML public void handleMainMenu(ActionEvent event) throws IOException{
+		Parent main_window_parent = FXMLLoader.load(getClass().getResource("MainWindowView.fxml"));
+		Scene main_window_scene = new Scene(main_window_parent);
+		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		app_stage.close();
+		app_stage.setScene(main_window_scene);
+		app_stage.show();	
 		
 	}
 	
