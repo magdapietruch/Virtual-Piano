@@ -1,3 +1,3 @@
 # Virtual-Piano
 
-Java project for Programming class
+Java project for programming course, 2017
